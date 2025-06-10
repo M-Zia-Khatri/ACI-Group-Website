@@ -3,7 +3,7 @@ export default function ProblemSection() {
     <section className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 bg-[var(--background)] text-[var(--text-black)]">
       <div className="flex items-center justify-center">
         <img
-          src="public/financial stress.jpg"
+          src="https://images.pexels.com/photos/6964138/pexels-photo-6964138.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
           alt="Problem Illustration"
           className="max-w-full h-auto rounded-lg shadow-md object-cover"
         />
