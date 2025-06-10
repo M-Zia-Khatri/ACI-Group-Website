@@ -21,7 +21,7 @@ export default function HeroSection() {
 
       <video
         className="absolute top-0 z-0 left-0 w-full h-full object-cover opacity-20"
-        src="public/trading.mp4"
+        src="/trading.mp4"
         autoPlay
         loop
         muted
