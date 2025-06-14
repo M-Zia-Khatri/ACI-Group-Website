@@ -76,11 +76,11 @@
   --sidebar-ring: oklch(0.707 0.022 261.325);
   --primary-blue: #0052cc;
   --accent-green: #008894;
-  --dark-navy: #0b0c10;
+  --dark-navy: rgb(9,9,10);
   --light-gray: #f4f6f8;
   --text-black: #2c3e50;
   --white: #ffffff;
-  --background : #F4F6F8;
+  --background : #151818;
   --Roboto: 'Roboto', 'Open Sans', Arial, sans-serif;
   --Bebas-Neue: 'Bebas Neue', Arial, sans-serif;
 }
@@ -126,7 +126,6 @@
 }
 
 
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -137,9 +136,8 @@
   }
 
   h1, h2, h3, h4, h5, h6,
-  .cta, .btn, .button {
+  .cta, .button {
     font-family: 'Bebas Neue', Arial, sans-serif;
-    letter-spacing: 1px;
   }
   .Roboto {
     font-family: 'Roboto', 'Open Sans', Arial, sans-serif;
@@ -147,4 +145,8 @@
   .Bebas-Neue {
     font-family: 'Bebas Neue', Arial, sans-serif;
   }
+}
+
+.btn{
+  @apply text-white bg-[var(--dark-navy)] text-xl hover:bg-[#1C1D1D] hover:text-[var(--primary-blue)] transition-colors duration-500
 }

@@ -8,6 +8,8 @@ import { useMemo, useState } from "react";
 
 export default function TopBar() {
   const [open, setOpen] = useState(false);
+  const [logoHover, setLogoHover] = useState(false);
+
   const navlink = useMemo(
     () => [
       { name: "Home", path: AppNavigation.Home },
@@ -18,21 +20,38 @@ export default function TopBar() {
     []
   );
   return (
-    <header className="text-[var(--primary-blue)] cta flex justify-between items-center p-4 text-lg bg-white shadow-md sticky top-0 z-50 font-[var(--BebasNeue)]">
+    <header className="text-white flex h-[12vh] justify-between items-center p-4 text-lg bg-[var(--dark-navy)] shadow-md sticky top-0 z-50 border-b-[1px] border-[#252323]">
       <div className="flex items-center gap-4">
-        <img src="/logo.png" alt="Logo" className="w-34" />
+        <img
+          src={logoHover ? "/logo-blue.svg" : "/logo.svg"}
+          alt="Logo"
+          className={`w-34 transition-all duration-500 ease-in-out ${
+            logoHover ? "scale-105 opacity-80" : "scale-100 opacity-100"
+          }`}
+          onMouseEnter={() => setLogoHover(true)}
+          onMouseLeave={() => setLogoHover(false)}
+          style={{
+            transition: "opacity 0.5s, transform 0.5s",
+          }}
+        />
       </div>
       <nav className="md:block hidden">
-        <ul className="flex gap-4 items-center text-2xl">
+        <ul className="flex gap-3 items-center">
           {navlink.map((link) => (
-            <Link to={link.path} key={link.name} className="">
-              <li>{link.name}</li>
+            <Link
+              to={link.path}
+              key={link.name}
+              className="transition-transform duration-500 hover:scale-118 "
+            >
+              <li className="transition-colors duration-500 hover:text-[var(--primary-blue)] font-[var(--Roboto)] text-[16px]">
+                {link.name}
+              </li>
             </Link>
           ))}
         </ul>
       </nav>
       <div className="hidden md:block">
-        <Button className="text-white bg-[var(--primary-blue)] text-2xl hover:bg-[var(--primary-blue-hover)] hover:text-[var(--primary-blue)] transition-colors duration-500">
+        <Button className="btn cta">
           <a href={WHATSAPP_Num_URL} target="_blank" rel="noopener noreferrer">
             Book free call
           </a>
@@ -47,19 +66,19 @@ export default function TopBar() {
         </SheetTrigger>
         <SheetContent side="top" className="flex flex-col gap-6">
           <nav>
-            <ul className="flex flex-col gap-4 text-2xl">
+            <ul className="flex flex-col gap-4 text-2xl font-sans">
               {navlink.map((link) => (
                 <Link
                   to={link.path}
                   key={link.name}
                   onClick={() => setOpen(false)}
                 >
-                  <li>{link.name}</li>
+                  <li className="font-sans">{link.name}</li>
                 </Link>
               ))}
             </ul>
           </nav>
-          <Button className="text-white bg-[var(--primary-blue)] text-2xl hover:bg-[var(--primary-blue-hover)] hover:text-[var(--primary-blue)] transition-colors duration-500 mt-4">
+          <Button className="text-white bg-[var(--primary-blue)] text-2xl hover:bg-[var(--primary-blue-hover)] hover:text-[var(--primary-blue)] transition-colors duration-500 mt-4 font-bebas">
             <a
               href={WHATSAPP_Num_URL}
               target="_blank"
