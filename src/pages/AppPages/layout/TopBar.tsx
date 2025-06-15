@@ -20,12 +20,13 @@ export default function TopBar() {
     []
   );
   return (
-    <header className="text-white flex h-[12vh] justify-between items-center p-4 text-lg bg-[var(--dark-navy)] shadow-md sticky top-0 z-50 border-b-[1px] border-[#252323]">
-      <div className="flex items-center gap-4">
+    <header className="text-white flex justify-between items-center md:px-6 py-3 md:py-4 text-base md:text-lg bg-[var(--dark-navy)] shadow-md sticky top-0 z-50 border-b-[1px] border-[#252323]">
+      {/* logo */}
+      <div className="flex items-center gap-3 md:gap-4">
         <img
           src={logoHover ? "/logo-blue.svg" : "/logo.svg"}
           alt="Logo"
-          className={`w-34 transition-all duration-500 ease-in-out ${
+          className={`w-[25vw] md:w-[22vw] lg:w-[20vw] transition-all duration-500 ease-in-out ${
             logoHover ? "scale-105 opacity-80" : "scale-100 opacity-100"
           }`}
           onMouseEnter={() => setLogoHover(true)}
@@ -35,60 +36,71 @@ export default function TopBar() {
           }}
         />
       </div>
-      <nav className="md:block hidden">
-        <ul className="flex gap-3 items-center">
+      {/* Desktop Navigation */}
+      <nav className="hidden md:block p-2">
+        <ul className="flex gap-3 md:gap-4 items-center">
           {navlink.map((link) => (
             <Link
               to={link.path}
               key={link.name}
-              className="transition-transform duration-500 hover:scale-118 "
+              className="transition-transform duration-500 hover:scale-110"
             >
-              <li className="transition-colors duration-500 hover:text-[var(--primary-blue)] font-[var(--Roboto)] text-[16px]">
+              <li className="transition-colors duration-500 hover:text-[var(--primary-blue)] font-[var(--Roboto)] text-fluid lg:text-fluid-lg">
                 {link.name}
               </li>
             </Link>
           ))}
         </ul>
       </nav>
+      {/* Desktop CTA Button */}
       <div className="hidden md:block">
-        <Button className="btn cta">
+        <Button className="btn cta hover:bg-[#1C1D1D] bg-[var(--dark-navy)] hover:text-[var(--primary-blue)] transition-colors duration-500  px-4 md:px-6 py-2 text-fluid-lg">
           <a href={WHATSAPP_Num_URL} target="_blank" rel="noopener noreferrer">
             Book free call
           </a>
         </Button>
       </div>
-
-      <Sheet open={open} onOpenChange={setOpen}>
-        <SheetTrigger asChild>
-          <Button className="md:hidden" onClick={() => setOpen(true)}>
-            <Menu />
-          </Button>
-        </SheetTrigger>
-        <SheetContent side="top" className="flex flex-col gap-6">
-          <nav>
-            <ul className="flex flex-col gap-4 text-2xl font-sans">
-              {navlink.map((link) => (
-                <Link
-                  to={link.path}
-                  key={link.name}
-                  onClick={() => setOpen(false)}
-                >
-                  <li className="font-sans">{link.name}</li>
-                </Link>
-              ))}
-            </ul>
-          </nav>
-          <Button className="text-white bg-[var(--primary-blue)] text-2xl hover:bg-[var(--primary-blue-hover)] hover:text-[var(--primary-blue)] transition-colors duration-500 mt-4 font-bebas">
-            <a
-              href={WHATSAPP_Num_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+      {/* Mobile Hamburger Menu */}
+      <div className="md:hidden flex items-center">
+        <Sheet open={open} onOpenChange={setOpen}>
+          <SheetTrigger asChild>
+            <Button
+              className="p-0 px-0"
+              onClick={() => setOpen(true)}
+              variant="ghost"
             >
-              Book free call
-            </a>
-          </Button>
-        </SheetContent>
-      </Sheet>
+              <Menu size={"36px"} strokeWidth={2.5} />
+            </Button>
+          </SheetTrigger>
+          <SheetContent
+            side="top"
+            className="flex flex-col gap-6 pt-8 pb-6 px-4"
+          >
+            <nav>
+              <ul className="flex flex-col gap-4 text-white text-base sm:text-lg md:text-xl font-sans">
+                {navlink.map((link) => (
+                  <Link
+                    to={link.path}
+                    key={link.name}
+                    onClick={() => setOpen(false)}
+                  >
+                    <li className="font-sans">{link.name}</li>
+                  </Link>
+                ))}
+              </ul>
+            </nav>
+            <Button className="text-white bg-[var(--primary-blue)] text-base sm:text-lg md:text-xl hover:bg-[var(--primary-blue-hover)] hover:text-[var(--primary-blue)] transition-colors duration-500 mt-4 font-bebas w-full">
+              <a
+                href={WHATSAPP_Num_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Book free call
+              </a>
+            </Button>
+          </SheetContent>
+        </Sheet>
+      </div>
     </header>
   );
 }

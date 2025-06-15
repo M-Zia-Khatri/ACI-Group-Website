@@ -83,6 +83,12 @@
   --background : #151818;
   --Roboto: 'Roboto', 'Open Sans', Arial, sans-serif;
   --Bebas-Neue: 'Bebas Neue', Arial, sans-serif;
+  --fluid-xs: clamp(0.75rem, 0.5vw + 0.5rem, 1rem);
+  --fluid-sm: clamp(0.875rem, 1vw + 0.5rem, 1.25rem);
+  --fluid: clamp(1rem, 1.5vw + 0.75rem, 2rem);
+  --fluid-lg: clamp(1.25rem, 2vw + 0.90rem, 2.5rem);
+  --fluid-xl: clamp(1.5rem, 3vw + 1.25rem, 3rem);
+  --fluid-2xl: clamp(2rem, 4vw + 1.5rem, 4rem);
 }
 
 .dark {
@@ -125,6 +131,27 @@
   --white: #ffffff;
 }
 
+@layer utilities {
+  .text-fluid-xs {
+    font-size: var(--fluid-xs) !important;
+  }
+  
+  .text-fluid-sm {
+    font-size: var(--fluid-sm) !important;
+  }
+  .text-fluid {
+    font-size: var(--fluid) !important;
+  }
+  .text-fluid-lg {
+    font-size: var(--fluid-lg) !important;
+  }
+  .text-fluid-xl {
+    font-size: var(--fluid-xl) !important;
+  }
+  .text-fluid-2xl {
+    font-size: var(--fluid-2xl) !important;
+  }
+}
 
 @layer base {
   * {
@@ -132,7 +159,7 @@
   }
   body {
     font-family: 'Roboto', 'Open Sans', Arial, sans-serif;
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground tracking-wide;
   }
 
   h1, h2, h3, h4, h5, h6,
@@ -147,6 +174,9 @@
   }
 }
 
+
+
 .btn{
-  @apply text-white bg-[var(--dark-navy)] text-xl hover:bg-[#1C1D1D] hover:text-[var(--primary-blue)] transition-colors duration-500
+  @apply py-5 tracking-wider
 }
+

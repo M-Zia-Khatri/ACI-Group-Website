@@ -6,13 +6,13 @@ export default function HeroSection() {
   return (
     <section className="w-full h-[90vh] bg-[var(--dark-navy)] text-white flex items-center justify-center relative overflow-hidden">
       <motion.div
-        className="container mx-auto px-6 py-24 text-center z-10 relative tracking-wide"
+        className="container mx-auto py-24 text-center z-10 relative tracking-wide"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 1, ease: "easeOut" }}
       >
         <motion.h1
-          className="text-5xl md:text-6xl font-[var(--Bebas-Neue)] mb-6"
+          className="text-5xl md:text-6xl lg:text-7xl font-[var(--Bebas-Neue)] mb-6 "
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.7 }}
@@ -20,7 +20,7 @@ export default function HeroSection() {
           Turn Financial Confusion into Confidence
         </motion.h1>
         <motion.p
-          className="max-w-2xl mx-auto text-lg md:text-xl font-roboto mb-8"
+          className="max-w-2xl mx-auto text-lg md:text-2xl lg:text-3xl font-roboto mb-8 tracking-wider"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.7 }}
@@ -36,9 +36,18 @@ export default function HeroSection() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.6, duration: 0.5 }}
         >
-          <Button className="text-white bg-[var(--dark-navy)] text-xl hover:bg-[#1C1D1D] hover:text-[var(--primary-blue)] transition-colors duration-500 cta z-50">
-            Book a Free Strategy Call
-          </Button>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+            transition={{ type: "spring", stiffness: 300, damping: 15 }}
+          >
+            <Button
+              variant="ghost"
+              className="cta text-lg md:text-2xl lg:text-3xl hover:bg-[#1C1D1D] btn transition-colors duration-200 hover:text-[var(--primary-blue)]"
+            >
+              Book a Free Strategy Call
+            </Button>
+          </motion.div>
         </motion.a>
       </motion.div>
 
