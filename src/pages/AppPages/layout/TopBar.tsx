@@ -53,12 +53,12 @@ export default function TopBar() {
         </ul>
       </nav>
       {/* Desktop CTA Button */}
-      <div className="hidden md:block">
-        <Button className="btn cta hover:bg-[#1C1D1D] bg-[var(--dark-navy)] hover:text-[var(--primary-blue)] transition-colors duration-500  px-4 md:px-6 py-2 text-fluid-lg">
-          <a href={WHATSAPP_Num_URL} target="_blank" rel="noopener noreferrer">
+      <div className="hidden h-full md:block">
+        <a href={WHATSAPP_Num_URL} target="_blank" rel="noopener noreferrer">
+          <Button className="btn cta py-0 h-full hover:bg-[#1C1D1D] bg-[var(--dark-navy)] hover:text-[var(--primary-blue)] transition-colors duration-500 text-fluid-lg">
             Book free call
-          </a>
-        </Button>
+          </Button>
+        </a>
       </div>
       {/* Mobile Hamburger Menu */}
       <div className="md:hidden flex items-center">
