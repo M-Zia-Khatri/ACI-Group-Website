@@ -1,5 +1,6 @@
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import { useEffect, useMemo, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function OurPromise() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -28,50 +29,47 @@ export default function OurPromise() {
             The ACI Group Promise
           </h2>
         </div>
+
         <div className="flex flex-col md:flex-row w-full gap-10 tracking-wide">
           {/* Left: List */}
           <div className="flex-1 flex flex-col justify-center">
             <ul>
-              {listItems.map((item, idx) => (
-                <li
-                  key={item}
-                  className={`flex items-start mb-6 text-fluid cursor-pointer transition-colors duration-200 ${
-                    idx === activeIndex
-                      ? "font-bold text-white"
-                      : "text-gray-400 hover:text-white"
-                  }`}
-                  onClick={() => setActiveIndex(idx)}
-                  style={{
-                    transition: "color 0.4s cubic-bezier(0.4,0,0.2,1)",
-                    height: "90px", // Set a fixed height for li
-                  }}
-                >2
-                  <span
-                    className={`w-2 h-[80%] mr-4 rounded-full my-auto transition-colors duration-200 ${
-                      idx === activeIndex ? "bg-green-400" : "bg-gray-700"
+              {listItems.map((item, idx) => {
+                const [main, sub] = item.split(" — ");
+                const isActive = idx === activeIndex;
+                return (
+                  <li
+                    key={item}
+                    onClick={() => setActiveIndex(idx)}
+                    className={`flex items-start mb-6 cursor-pointer transition-colors duration-200 ${
+                      isActive ? "font-bold text-white" : "text-gray-400 hover:text-white"
                     }`}
-                    style={{
-                      transition: "background-color 0.4s cubic-bezier(0.4,0,0.2,1)",
-                      display: "inline-block",
-                    }}
-                  />
-                  <div>
-                    {(() => {
-                      const parts = item.split(" — ");
-                      return (
-                        <>
-                          <span className="block">{parts[0].trim()}</span>
-                          {parts[1] && (
-                            <span className="block text-fluid-sm text-gray-300">
-                              {parts[1].trim()}
-                            </span>
-                          )}
-                        </>
-                      );
-                    })()}
-                  </div>
-                </li>
-              ))}
+                    style={{ height: "90px" }}
+                  >
+                    <motion.span
+                      layout
+                      className={`w-2 h-[80%] mr-4 rounded-full my-auto ${
+                        isActive ? "bg-green-400" : "bg-gray-700"
+                      }`}
+                      transition={{ duration: 0.4 }}
+                    />
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.4 }}
+                    >
+                      <span className="block">{main.trim()}</span>
+                      {sub && (
+                        <span className="block text-fluid-sm text-gray-300">
+                          {sub.trim()}
+                        </span>
+                      )}
+                    </motion.div>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
@@ -79,15 +77,18 @@ export default function OurPromise() {
           <div className="flex-1 flex items-center justify-center">
             <div className="bg-[var(--background)] rounded-2xl shadow-xl p-4 w-full border flex flex-col items-center transition-all duration-500 ease-in-out">
               <AspectRatio ratio={1}>
-                <img
-                  src={`/promise${activeIndex + 1}.png`}
-                  alt={`Promise ${activeIndex + 1}`}
-                  className="w-full h-full object-contain transition-all duration-500 ease-in-out"
-                  style={{
-                    opacity: 1,
-                    transition: "opacity 0.5s cubic-bezier(0.4,0,0.2,1)",
-                  }}
-                />
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={activeIndex}
+                    src={`/promise${activeIndex + 1}.png`}
+                    alt={`Promise ${activeIndex + 1}`}
+                    className="w-full h-full object-contain"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.5 }}
+                  />
+                </AnimatePresence>
               </AspectRatio>
             </div>
           </div>
@@ -95,8 +96,7 @@ export default function OurPromise() {
 
         <div className="w-full text-center mt-10">
           <p className="font-bold text-gray-400 border-t border-[#23272b] pt-6 text-fluid">
-            We don’t sell courses. We don’t make false promises. We only grow if
-            you grow.
+            We don’t sell courses. We don’t make false promises. We only grow if you grow.
           </p>
         </div>
       </div>
