@@ -1,15 +1,15 @@
 export default function ProblemSection() {
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 bg-[var(--background)] text-[var(--text-black)]">
+    <section className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 bg-[var(--background)] text-[var(--text-black)] leading-14 ">
       <div className="flex flex-col justify-center text-center md:text-left px-4 py-6 text-white">
-        <h2 className="text-fluid-lg font-bold mb-4 text-[var(--primary-color)] tracking-widest">
+        <h2 className="text-fluid-xl font-bold mb-4 text-[var(--primary-color)] tracking-wider">
           Feeling overwhelmed by trading, losses, or unreliable “tips”?
         </h2>
-        <p className="mb-4 text-base md:text-lg ">
+        <p className="mb-4 text-fluid-sm md:text-lg font-[var(--Bebas-Neue)]">
           You’re not alone. Most people don’t have the time or experience to
           trade smartly. The wrong move can wipe out months of savings.
         </p>
-        <p className="text-base md:text-xl ">
+        <p className="text-fluid-sm md:text-xl font-[var(--Bebas-Neue)] ">
           What if someone skilled could trade for you — with your money, your
           control, and your peace of mind?
         </p>

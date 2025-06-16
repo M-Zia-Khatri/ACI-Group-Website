@@ -1,8 +1,15 @@
-import { Users } from "lucide-react";
-import { useMemo, useState } from "react";
+import { AspectRatio } from "@radix-ui/react-aspect-ratio";
+import { useEffect, useMemo, useState } from "react";
 
 export default function OurPromise() {
   const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex === 2 ? 0 : prevIndex + 1));
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   const listItems = useMemo(
     () => [
@@ -15,57 +22,83 @@ export default function OurPromise() {
 
   return (
     <section className="min-h-[400px] m-4 flex items-center justify-center text-white py-16 bg-gradient-to-br from-[#181c20] to-[#23272b] rounded-2xl shadow-2xl">
-      <div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-5xl gap-10">
-      <h2 className="text-3xl md:text-4xl font-extrabold col-span-2 mb-8 text-center tracking-tight">
-        The ACI Group Promise
-      </h2>
-      {/* Left: List */}
-      <div className="pr-0 md:pr-14 flex flex-col justify-center col-span-1">
-        <ul>
-        {listItems.map((item, idx) => (
-          <li
-          key={item}
-          className={`flex items-start mb-6 text-lg cursor-pointer transition-colors duration-200 ${
-            idx === activeIndex
-            ? "font-bold text-white"
-            : "text-gray-400 hover:text-white"
-          }`}
-          onClick={() => setActiveIndex(idx)}
-          >
-          <span
-            className={`w-2 h-8 mr-4 rounded-full mt-1 transition-colors duration-200 ${
-            idx === activeIndex ? "bg-green-400" : "bg-gray-700"
-            }`}
-          />
-          <div>
-            <span className="block">{item.split(" — ")[0].trim()}</span>
-            <span className="block text-base text-gray-300">
-            {item.split(" — ")[1].trim()}
-            </span>
+      <div className="w-full max-w-5xl px-2 lg:px-0 flex flex-col items-center">
+        <div className="w-full border-b border-[#23272b] mb-10">
+          <h2 className="text-fluid-2xl font-extrabold text-center tracking-widest">
+            The ACI Group Promise
+          </h2>
+        </div>
+        <div className="flex flex-col md:flex-row w-full gap-10 tracking-wide">
+          {/* Left: List */}
+          <div className="flex-1 flex flex-col justify-center">
+            <ul>
+              {listItems.map((item, idx) => (
+                <li
+                  key={item}
+                  className={`flex items-start mb-6 text-fluid cursor-pointer transition-colors duration-200 ${
+                    idx === activeIndex
+                      ? "font-bold text-white"
+                      : "text-gray-400 hover:text-white"
+                  }`}
+                  onClick={() => setActiveIndex(idx)}
+                  style={{
+                    transition: "color 0.4s cubic-bezier(0.4,0,0.2,1)",
+                    height: "90px", // Set a fixed height for li
+                  }}
+                >2
+                  <span
+                    className={`w-2 h-[80%] mr-4 rounded-full my-auto transition-colors duration-200 ${
+                      idx === activeIndex ? "bg-green-400" : "bg-gray-700"
+                    }`}
+                    style={{
+                      transition: "background-color 0.4s cubic-bezier(0.4,0,0.2,1)",
+                      display: "inline-block",
+                    }}
+                  />
+                  <div>
+                    {(() => {
+                      const parts = item.split(" — ");
+                      return (
+                        <>
+                          <span className="block">{parts[0].trim()}</span>
+                          {parts[1] && (
+                            <span className="block text-fluid-sm text-gray-300">
+                              {parts[1].trim()}
+                            </span>
+                          )}
+                        </>
+                      );
+                    })()}
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
-          </li>
-        ))}
-        </ul>
-      </div>
-      {/* Right: Card */}
-      <div className="flex items-center justify-center col-span-1">
-        <div className="bg-[#16181c] rounded-2xl shadow-xl p-10 w-full max-w-md border border-[#23272b]">
-        <Users className="w-10 h-10 text-green-400 mb-5" />
-        <div className="flex items-center mb-3">
-          <span className="bg-green-500 text-xs px-3 py-1 rounded-full text-black mr-3 font-bold uppercase tracking-wide shadow">
-          zoe
-          </span>
-          <span className="text-xl font-semibold text-white">
-          Collaborate on <span className="text-green-400">ideas</span>
-          </span>
+
+          {/* Right: Card */}
+          <div className="flex-1 flex items-center justify-center">
+            <div className="bg-[var(--background)] rounded-2xl shadow-xl p-4 w-full border flex flex-col items-center transition-all duration-500 ease-in-out">
+              <AspectRatio ratio={1}>
+                <img
+                  src={`/promise${activeIndex + 1}.png`}
+                  alt={`Promise ${activeIndex + 1}`}
+                  className="w-full h-full object-contain transition-all duration-500 ease-in-out"
+                  style={{
+                    opacity: 1,
+                    transition: "opacity 0.5s cubic-bezier(0.4,0,0.2,1)",
+                  }}
+                />
+              </AspectRatio>
+            </div>
+          </div>
         </div>
-        <p className="text-gray-300 text-base leading-relaxed">
-          Write down product ideas and work together on feature specs in
-          realtime, multiplayer project documents. Add <b>style</b> and{" "}
-          <b>structure</b> with rich-text formatting options.
-        </p>
+
+        <div className="w-full text-center mt-10">
+          <p className="font-bold text-gray-400 border-t border-[#23272b] pt-6 text-fluid">
+            We don’t sell courses. We don’t make false promises. We only grow if
+            you grow.
+          </p>
         </div>
-      </div>
       </div>
     </section>
   );
