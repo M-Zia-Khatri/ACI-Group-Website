@@ -7,6 +7,8 @@ import {
 } from "@/components/ui/carousel";
 import { Quote } from "lucide-react";
 import { useMemo } from "react";
+import { motion } from "framer-motion";
+import Autoplay from "embla-carousel-autoplay";
 
 export function Testimonials() {
   const testimonialData = useMemo(
@@ -29,62 +31,72 @@ export function Testimonials() {
     ],
     []
   );
+
   return (
-    <section className="mx-4 rounded-md shadow-lg bg-white py-16 lg:py-24">
+    <section className="py-16 lg:py-24 bg-gradient-to-br from-[#181c20] to-[#23272b] text-white">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="mb-12 text-center">
-          <h2
-            className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
-            style={{ fontFamily: "'Newsreader', sans-serif" }}
-          >
+        <motion.div
+          className="mb-16 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-fluid-2xl sm:text-fluid-3xl md:text-fluid-4xl lg:text-fluid-6xl xl:text-fluid-7xl font-extrabold tracking-wide mb-4">
             What Our Clients Say
           </h2>
-        </div>
+          <div className="w-24 h-1 bg-[#0052CC] mx-auto rounded-full"></div>
+        </motion.div>
 
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          className="w-full max-w-xl mx-auto"
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
         >
-          <CarouselContent>
-            {testimonialData.map((testimonial, index) => (
-              <CarouselItem key={index}>
-                <div className="p-1">
-                  <figure className="flex h-full flex-col items-center justify-center text-center">
-                    <Quote
-                      className="mb-4 h-10 w-10 text-gray-400"
-                      aria-hidden="true"
-                    />
-                    <blockquote
-                      className="text-xl md:text-2xl italic leading-relaxed text-gray-800"
-                      style={{
-                        fontFamily: "'Newsreader', sans-serif",
-                        fontStyle: "italic",
-                      }}
-                    >
-                      <p>"{testimonial.quote}"</p>
-                    </blockquote>
-                    <figcaption className="mt-6">
-                      <div
-                        className="text-base not-italic text-gray-500"
-                        style={{
-                          fontFamily: "'Newsreader', sans-serif",
-                          fontStyle: "italic",
-                        }}
-                      >
-                        — {testimonial.author}
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            plugins={[Autoplay({ delay: 3000, stopOnInteraction: false })]}
+            className="w-full max-w-4xl mx-auto"
+          >
+            <CarouselContent>
+              {testimonialData.map((testimonial, index) => (
+                <CarouselItem key={index}>
+                  <motion.div
+                    className="p-8 mx-4"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <figure className="flex h-full flex-col items-center justify-center text-center bg-[#151818] rounded-2xl p-8 shadow-2xl">
+                      <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#0052CC]/10">
+                        <Quote
+                          className="h-8 w-8 text-[#0052CC]"
+                          aria-hidden="true"
+                        />
                       </div>
-                    </figcaption>
-                  </figure>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="hidden sm:inline-flex" />
-          <CarouselNext className="hidden sm:inline-flex" />
-        </Carousel>
+                      <blockquote className="mb-6">
+                        <p className="text-fluid-lg sm:text-fluid-xl md:text-fluid-2xl leading-relaxed font-Newsreader">
+                          "{testimonial.quote}"
+                        </p>
+                      </blockquote>
+                      <figcaption>
+                        <div className="text-fluid-md text-gray-400 font-Newsreader">
+                          — {testimonial.author}
+                        </div>
+                      </figcaption>
+                    </figure>
+                  </motion.div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden sm:flex -left-4 text-white hover:text-[#0052CC] border-white hover:border-[#0052CC] bg-[#151818]/50 hover:bg-[#151818]" />
+            <CarouselNext className="hidden sm:flex -right-4 text-white hover:text-[#0052CC] border-white hover:border-[#0052CC] bg-[#151818]/50 hover:bg-[#151818]" />
+          </Carousel>
+        </motion.div>
       </div>
     </section>
   );

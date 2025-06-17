@@ -1,62 +1,150 @@
-import { MapPin, Smartphone, Mail, Facebook } from "lucide-react";
+import { MapPin, Smartphone, Mail, Facebook, Instagram, Twitter, Phone } from "lucide-react";
+import { motion } from "framer-motion";
+
+import { WHATSAPP_Num_URL } from "@/constants/urlConstants";
+import { Button } from "@/components/ui/button";
 
 export const Footer = () => {
   const contactInfo = [
     {
-      icon: <MapPin className="h-5 w-5 flex-shrink-0" />,
+      icon: MapPin,
       text: "Based in Pakistan",
       href: "#",
     },
     {
-      icon: <Smartphone className="h-5 w-5 flex-shrink-0" />,
+      icon: Smartphone,
       text: "WhatsApp / Call: +92 XXX XXX XXXX",
       href: "tel:+920000000000",
     },
     {
-      icon: <Mail className="h-5 w-5 flex-shrink-0" />,
+      icon: Mail,
       text: "support@acigroups.com",
       href: "mailto:support@acigroups.com",
     },
   ];
 
+  const socialLinks = [
+    { icon: Facebook, href: "#", label: "Facebook" },
+    { icon: Instagram, href: "#", label: "Instagram" },
+    { icon: Twitter, href: "#", label: "Twitter" },
+  ];
+
   return (
-    <footer className="bg-[var(--dark-navy)] text-gray-300">
-      <div className="container mx-auto px-6 py-12">
-        <div className="flex flex-col items-start justify-between gap-12 md:flex-row">
-          <div className="flex flex-col gap-6">
-            <h3 className="text-2xl font-semibold text-white">
+    <footer className="bg-gradient-to-br from-[#181c20] to-[#23272b] text-white relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute inset-0 bg-[#151818]/30"></div>
+      <div className="absolute top-0 left-0 w-96 h-96 bg-[#0052CC]/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#0052CC]/5 rounded-full translate-x-1/2 translate-y-1/2 blur-3xl"></div>
+
+      {/* Main content */}
+      <div className="container relative mx-auto px-4 md:px-6">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 py-16">
+          {/* Company Info */}
+          <motion.div
+            className="md:col-span-5"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h3 className="text-fluid-xl font-bold mb-6">
               ACI Group — Transparent
             </h3>
             <div className="space-y-4">
-              {contactInfo.map((item) => (
-                <a
-                  key={item.text}
-                  href={item.href}
-                  className="group flex items-center gap-3 transition-colors duration-300 hover:text-primary-blue"
-                >
-                  {item.icon}
-                  <span>{item.text}</span>
-                </a>
-              ))}
+              {contactInfo.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <motion.a
+                    key={item.text}
+                    href={item.href}
+                    className="group flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-300"
+                    whileHover={{ x: 5 }}
+                  >
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#0052CC]/10">
+                      <Icon className="h-5 w-5 text-[#0052CC]" />
+                    </div>
+                    <span className="text-fluid">{item.text}</span>
+                  </motion.a>
+                );
+              })}
             </div>
-          </div>
+          </motion.div>
 
-          <div className="flex flex-col gap-4">
-            <h4 className="text-lg font-semibold text-white">Social Media</h4>
-            <div className="flex items-center gap-4">
-              <a
-                href="#"
-                aria-label="Facebook"
-                className="transition-colors duration-300 hover:text-primary-blue"
+          {/* Quick Links */}
+          <motion.div
+            className="md:col-span-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            <h4 className="text-fluid-lg font-bold mb-6">Quick Links</h4>
+            <nav className="space-y-3">
+              {["About Us", "Services", "Contact", "Terms of Service", "Privacy Policy"].map((link) => (
+                <motion.a
+                  key={link}
+                  href="#"
+                  className="block text-gray-300 hover:text-white transition-colors duration-300"
+                  whileHover={{ x: 5 }}
+                >
+                  {link}
+                </motion.a>
+              ))}
+            </nav>
+          </motion.div>
+
+          {/* CTA and Social */}
+          <motion.div
+            className="md:col-span-3"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <h4 className="text-fluid-lg font-bold mb-6">Get Started</h4>
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <Button
+                asChild
+                className="bg-[#0052CC] hover:bg-[#0052CC]/90 text-white w-full mb-6 font-Karla"
               >
-                <Facebook className="h-7 w-7" />
-              </a>
+                <a href={WHATSAPP_Num_URL} target="_blank" rel="noopener noreferrer">
+                  <Phone className="mr-2 h-5 w-5" />
+                  Book a Call
+                </a>
+              </Button>
+            </motion.div>
+
+            <div>
+              <h5 className="text-fluid font-semibold mb-4">Follow Us</h5>
+              <div className="flex gap-4">
+                {socialLinks.map((social) => {
+                  const Icon = social.icon;
+                  return (
+                    <motion.a
+                      key={social.label}
+                      href={social.href}
+                      className="flex h-10 w-10 items-center justify-center rounded-full bg-[#0052CC]/10 text-[#0052CC] hover:bg-[#0052CC] hover:text-white transition-colors duration-300"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      aria-label={social.label}
+                    >
+                      <Icon className="h-5 w-5" />
+                    </motion.a>
+                  );
+                })}
+              </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        <div className="mt-12 border-t border-gray-700 pt-8 text-center text-sm text-gray-500">
-          <p>© {new Date().getFullYear()} ACI Group. All Rights Reserved.</p>
+        {/* Copyright */}
+        <div className="border-t border-gray-800 py-8">
+          <p className="text-center text-gray-400 text-sm">
+            © {new Date().getFullYear()} ACI Group. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
