@@ -5,11 +5,11 @@ export default function ProblemSection() {
         <h2 className="text-fluid-lg sm:text-fluid-xl md:text-fluid-lg lg:text-fluid-xl xl:text-fluid-2xl font-bold mb-4 text-[var(--primary-color)] leading-tight">
           Feeling overwhelmed by trading, losses, or unreliable “tips”?
         </h2>
-        <p className="mb-4 text-fluid-sm md:text-lg Karla">
+        <p className=" text-fluid-sm sm:text-fluid mb-4 Karla leading-7 md:leading-8">
           You’re not alone. Most people don’t have the time or experience to
           trade smartly. The wrong move can wipe out months of savings.
         </p>
-        <p className="text-fluid-sm md:text-xl Karla ">
+        <p className="text-fluid-sm sm:text-fluid Karla leading-7 md:leading-8 ">
           What if someone skilled could trade for you — with your money, your
           control, and your peace of mind?
         </p>
