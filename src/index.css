@@ -86,6 +86,7 @@
   --fluid-xs: clamp(0.75rem, 0.6vw + 0.6rem, 1rem);
   --fluid-sm: clamp(0.875rem, 1vw + 0.7rem, 1.125rem);
   --fluid: clamp(1rem, 1.2vw + 0.8rem, 1.5rem);
+  --fluid-md: clamp(1.125rem, 1.4vw + 0.9rem, 1.625rem);
   --fluid-lg: clamp(1.25rem, 1.5vw + 1rem, 1.875rem);
   --fluid-xl: clamp(1.5rem, 2vw + 1.2rem, 2.25rem);
   --fluid-2xl: clamp(2rem, 2.5vw + 1.5rem, 2.75rem);
@@ -148,6 +149,9 @@
   .text-fluid {
     font-size: var(--fluid) !important;
   }
+  .text-fluid-md {
+    font-size: var(--fluid-md) !important;
+  }
   .text-fluid-lg {
     font-size: var(--fluid-lg) !important;
   }
@@ -183,6 +187,7 @@
     .sm\:text-fluid-xs { font-size: var(--fluid-xs) !important; }
     .sm\:text-fluid-sm { font-size: var(--fluid-sm) !important; }
     .sm\:text-fluid { font-size: var(--fluid) !important; }
+    .sm\:text-fluid-md { font-size: var(--fluid-md) !important; }
     .sm\:text-fluid-lg { font-size: var(--fluid-lg) !important; }
     .sm\:text-fluid-xl { font-size: var(--fluid-xl) !important; }
     .sm\:text-fluid-2xl { font-size: var(--fluid-2xl) !important; }
@@ -198,6 +203,7 @@
     .md\:text-fluid-xs { font-size: var(--fluid-xs) !important; }
     .md\:text-fluid-sm { font-size: var(--fluid-sm) !important; }
     .md\:text-fluid { font-size: var(--fluid) !important; }
+    .md\:text-fluid-md { font-size: var(--fluid-md) !important; }
     .md\:text-fluid-lg { font-size: var(--fluid-lg) !important; }
     .md\:text-fluid-xl { font-size: var(--fluid-xl) !important; }
     .md\:text-fluid-2xl { font-size: var(--fluid-2xl) !important; }
@@ -213,6 +219,7 @@
     .lg\:text-fluid-xs { font-size: var(--fluid-xs) !important; }
     .lg\:text-fluid-sm { font-size: var(--fluid-sm) !important; }
     .lg\:text-fluid { font-size: var(--fluid) !important; }
+    .lg\:text-fluid-md { font-size: var(--fluid-md) !important; }
     .lg\:text-fluid-lg { font-size: var(--fluid-lg) !important; }
     .lg\:text-fluid-xl { font-size: var(--fluid-xl) !important; }
     .lg\:text-fluid-2xl { font-size: var(--fluid-2xl) !important; }
@@ -228,6 +235,7 @@
     .xl\:text-fluid-xs { font-size: var(--fluid-xs) !important; }
     .xl\:text-fluid-sm { font-size: var(--fluid-sm) !important; }
     .xl\:text-fluid { font-size: var(--fluid) !important; }
+    .xl\:text-fluid-md { font-size: var(--fluid-md) !important; }
     .xl\:text-fluid-lg { font-size: var(--fluid-lg) !important; }
     .xl\:text-fluid-xl { font-size: var(--fluid-xl) !important; }
     .xl\:text-fluid-2xl { font-size: var(--fluid-2xl) !important; }

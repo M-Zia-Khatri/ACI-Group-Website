@@ -8,7 +8,7 @@ export default function OurPromise() {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex === 2 ? 0 : prevIndex + 1));
-    }, 3000);
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
 
@@ -24,15 +24,18 @@ export default function OurPromise() {
   return (
     <section className="min-h-[400px] m-4 flex items-center justify-center text-white py-16 bg-gradient-to-br from-[#181c20] to-[#23272b] rounded-2xl shadow-2xl">
       <div className="w-full max-w-5xl px-2 lg:px-0 flex flex-col items-center">
-        <div className="w-full border-b border-[#23272b] mb-10">
-          <h2 className="text-fluid-2xl font-extrabold text-center tracking-widest">
+        {/*heading*/}
+        <div className="w-full mb-10 md:mb-12">
+          <h2 className="text-fluid-xl sm:text-fluid-3xl md:text-fluid-4xl lg:text-fluid-6xl xl:text-fluid-7xl font-extrabold text-center tracking-wide leading-7 ">
             The ACI Group Promise
           </h2>
+          <hr className="relative top-6 md:top-9 xl:top-10 border-t border-[1.5px] border-[#23272b]" />
         </div>
 
+        {/*Listing*/}
         <div className="flex flex-col md:flex-row w-full gap-10 tracking-wide">
           {/* Left: List */}
-          <div className="flex-1 flex flex-col justify-center">
+          <div className="flex-1 flex flex-col justify-center pl-4">
             <ul>
               {listItems.map((item, idx) => {
                 const [main, sub] = item.split(" — ");
@@ -42,7 +45,9 @@ export default function OurPromise() {
                     key={item}
                     onClick={() => setActiveIndex(idx)}
                     className={`flex items-start mb-6 cursor-pointer transition-colors duration-200 ${
-                      isActive ? "font-bold text-white" : "text-gray-400 hover:text-white"
+                      isActive
+                        ? "font-bold text-white"
+                        : "text-gray-400 hover:text-white"
                     }`}
                     style={{ height: "90px" }}
                   >
@@ -53,16 +58,20 @@ export default function OurPromise() {
                       }`}
                       transition={{ duration: 0.4 }}
                     />
+
                     <motion.div
                       key={idx}
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
                       transition={{ duration: 0.4 }}
+                      className="self-center"
                     >
-                      <span className="block">{main.trim()}</span>
+                      <span className="block text-fluid sm:text-fluid-xl md:text-fluid-md lg:text-fluid-lg leading-6">
+                        {main.trim()}
+                      </span>
                       {sub && (
-                        <span className="block text-fluid-sm text-gray-300">
+                        <span className="block text-fluid-sm sm:text-fluid lg:text-fluid-md text-gray-300">
                           {sub.trim()}
                         </span>
                       )}
@@ -94,9 +103,12 @@ export default function OurPromise() {
           </div>
         </div>
 
+        {/*To inspire trust*/}
         <div className="w-full text-center mt-10">
-          <p className="font-bold text-gray-400 border-t border-[#23272b] pt-6 text-fluid">
-            We don’t sell courses. We don’t make false promises. We only grow if you grow.
+          <p className="font-bold text-gray-400 border-t border-[1.5px] border-[#23272b] pt-6 text-fluid-md sm:text-fluid-lg md:text-fluid-lg lg
+          :text-fluid-2xl">
+            We don’t sell courses. We don’t make false promises. We only grow if
+            you grow.
           </p>
         </div>
       </div>
