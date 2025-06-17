@@ -35,7 +35,7 @@ export function Testimonials() {
         <div className="mb-12 text-center">
           <h2
             className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
-            style={{ fontFamily: "'Roboto', sans-serif" }}
+            style={{ fontFamily: "'Newsreader', sans-serif" }}
           >
             What Our Clients Say
           </h2>
@@ -60,7 +60,7 @@ export function Testimonials() {
                     <blockquote
                       className="text-xl md:text-2xl italic leading-relaxed text-gray-800"
                       style={{
-                        fontFamily: "'Roboto', sans-serif",
+                        fontFamily: "'Newsreader', sans-serif",
                         fontStyle: "italic",
                       }}
                     >
@@ -70,7 +70,7 @@ export function Testimonials() {
                       <div
                         className="text-base not-italic text-gray-500"
                         style={{
-                          fontFamily: "'Roboto', sans-serif",
+                          fontFamily: "'Newsreader', sans-serif",
                           fontStyle: "italic",
                         }}
                       >

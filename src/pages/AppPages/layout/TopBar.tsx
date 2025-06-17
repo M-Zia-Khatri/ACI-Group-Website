@@ -45,7 +45,7 @@ export default function TopBar() {
               key={link.name}
               className="transition-transform duration-500 hover:scale-110"
             >
-              <li className="transition-colors duration-500 hover:text-[var(--primary-blue)] font-[var(--Roboto)] text-fluid lg:text-fluid-lg">
+              <li className="transition-colors duration-500 hover:text-[var(--primary-blue)] Newsreader text-fluid lg:text-fluid-lg">
                 {link.name}
               </li>
             </Link>
