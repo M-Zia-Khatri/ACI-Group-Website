@@ -22,20 +22,20 @@ export default function OurPromise() {
   );
 
   return (
-    <section className="min-h-[400px] m-4 flex items-center justify-center text-white py-16 bg-gradient-to-br from-[#181c20] to-[#23272b] rounded-2xl shadow-2xl">
-      <div className="w-full max-w-5xl px-2 lg:px-0 flex flex-col items-center">
+    <section className="min-h-[400px] flex items-center justify-center text-white  py-10 md:py-16 bg-gradient-to-br from-[#181c20] to-[#23272b] shadow-lg ">
+      <div className="w-full max-w-[1250px] px-2 lg:px-0 flex flex-col items-center">
         {/*heading*/}
         <div className="w-full mb-10 md:mb-12">
-          <h2 className="text-fluid-xl sm:text-fluid-3xl md:text-fluid-4xl lg:text-fluid-6xl xl:text-fluid-7xl font-extrabold text-center tracking-wide leading-7 ">
+          <h2 className="text-fluid-xl sm:text-fluid-2xl md:text-fluid-3xl lg:text-fluid-4xl xl:text-fluid-5xl font-extrabold text-center tracking-wide leading-7 ">
             The ACI Group Promise
           </h2>
           <hr className="relative top-6 md:top-9 xl:top-10 border-t border-[1.5px] border-[#23272b]" />
         </div>
 
         {/*Listing*/}
-        <div className="flex flex-col md:flex-row w-full gap-10 tracking-wide">
+        <div className="flex flex-col md:px-4 md:flex-row w-full gap-10 tracking-wide">
           {/* Left: List */}
-          <div className="flex-1 flex flex-col justify-center pl-4">
+          <div className="flex-1 flex flex-col justify-center pl-4 md:pl-0">
             <ul>
               {listItems.map((item, idx) => {
                 const [main, sub] = item.split(" — ");
@@ -67,11 +67,11 @@ export default function OurPromise() {
                       transition={{ duration: 0.4 }}
                       className="self-center"
                     >
-                      <span className="block text-fluid sm:text-fluid-xl md:text-fluid-md lg:text-fluid-lg leading-6">
+                      <span className="block text-fluid sm:text-fluid-l md:text-fluid lg:text-fluid-lg leading-6">
                         {main.trim()}
                       </span>
                       {sub && (
-                        <span className="block text-fluid-sm sm:text-fluid lg:text-fluid-md text-gray-300">
+                        <span className="block text-fluid-sm sm:text-fluid md:text-fluid-sm lg:text-fluid-md text-gray-300">
                           {sub.trim()}
                         </span>
                       )}
@@ -85,13 +85,13 @@ export default function OurPromise() {
           {/* Right: Card */}
           <div className="flex-1 flex items-center justify-center">
             <div className="bg-[var(--background)] rounded-2xl shadow-xl p-4 w-full border flex flex-col items-center transition-all duration-500 ease-in-out">
-              <AspectRatio ratio={1}>
+              <AspectRatio ratio={9 / 7}>
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={activeIndex}
                     src={`/promise${activeIndex + 1}.png`}
                     alt={`Promise ${activeIndex + 1}`}
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain "
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
@@ -105,8 +105,7 @@ export default function OurPromise() {
 
         {/*To inspire trust*/}
         <div className="w-full text-center mt-10">
-          <p className="font-bold text-gray-400 border-t border-[1.5px] border-[#23272b] pt-6 text-fluid-md sm:text-fluid-lg md:text-fluid-lg lg
-          :text-fluid-2xl">
+          <p className="px-2 font-bold text-gray-400 border-t border-[1.5px] border-[#23272b] pt-6 text-fluid sm:text-fluid-md md:text-fluid-lg xl:text-fluid-xl leading-snug lg:leading-">
             We don’t sell courses. We don’t make false promises. We only grow if
             you grow.
           </p>

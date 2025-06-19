@@ -27,14 +27,14 @@ const steps = [
 
 export function HowItWorksSection() {
   return (
-    <section className="text-white py-8 md:py-12">
-      <div className="container mx-auto px-4">
+    <section className="text-white py-6 mb-4 md:py-12">
+      <div className="w-full max-w-[1250px] mx-auto px-4">
         {/* Section Heading */}
         <div className="text-center mb-20">
-          <h2 className="text-fluid-2xl sm:text-fluid-3xl md:text-fluid-4xl lg:text-fluid-6xl xl:text-fluid-7xl font-extrabold tracking-wide">
+          <h2 className="text-fluid-xl sm:text-fluid-2xl md:text-fluid-3xl lg:text-fluid-4xl xl:text-fluid-5xl font-extrabold tracking-wide">
             How It Works
           </h2>
-          <p className="mt-4 max-w-3xl mx-auto text-white/80 text-fluid-md sm:text-fluid-lg md:text-fluid-xl ">
+          <p className="mt-4 mx-auto text-white/80 text-fluid sm:text-fluid-md md:text-fluid-lg xl:text-fluid-xl">
             You'll get access to live dashboards, monthly reports, and full
             control over your funds.
           </p>
@@ -42,7 +42,7 @@ export function HowItWorksSection() {
         </div>
 
         {/* Timeline Steps */}
-        <div className="relative max-w-5xl mx-auto">
+        <div className="relative max-w-[1250px] mx-auto">
           {/* Timeline Vertical Line */}
           <div className="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 h-full w-1 bg-[#364153] z-0" />
 
@@ -73,7 +73,7 @@ export function HowItWorksSection() {
                   })()}
                 `}
               >
-                <div className="bg-[#202428] h-full flex flex-col items-center justify-center rounded-xl shadow-xl px-6 py-8 w-full max-w-md">
+                <div className="bg-[#202428]  h-full flex flex-col items-center justify-center rounded-xl shadow-xl px-6 py-8 w-full">
                   <Icon className="h-[9vh] md:h-[8vh] w-[9vw] md:w-[8vw] text-[#0052CC] mb-4" />
                   <h3 className="text-fluid-xl sm:text-fluid-2xl md:text-fluid-xl lg:text-fluid-2xl font-semibold mb-1">
                     Step {step}

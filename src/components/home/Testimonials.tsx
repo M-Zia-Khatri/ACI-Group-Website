@@ -33,8 +33,8 @@ export function Testimonials() {
   );
 
   return (
-    <section className="py-16 lg:py-24 bg-gradient-to-br from-[#181c20] to-[#23272b] text-white">
-      <div className="container mx-auto px-4 md:px-6">
+    <section className="py-16 lg:py-10 bg-gradient-to-br from-[#181c20] to-[#23272b] text-white">
+      <div className="max-w-[1250px] w-full mx-auto px-4 md:px-6">
         <motion.div
           className="mb-16 text-center"
           initial={{ opacity: 0, y: 20 }}
@@ -42,13 +42,14 @@ export function Testimonials() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-fluid-2xl sm:text-fluid-3xl md:text-fluid-4xl lg:text-fluid-6xl xl:text-fluid-7xl font-extrabold tracking-wide mb-4">
+          <h2 className="text-fluid-xl sm:text-fluid-2xl md:text-fluid-3xl lg:text-fluid-4xl xl:text-fluid-5xl font-extrabold tracking-wide mb-4">
             What Our Clients Say
           </h2>
-          <div className="w-24 h-1 bg-[#0052CC] mx-auto rounded-full"></div>
+          <hr className="relative top-5 border-t border-[1.5px] border-[#23272b]" />
         </motion.div>
 
         <motion.div
+          className="w-full"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -66,7 +67,7 @@ export function Testimonials() {
               {testimonialData.map((testimonial, index) => (
                 <CarouselItem key={index}>
                   <motion.div
-                    className="p-8 mx-4"
+                    className="md:p-8 md:mx-4"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5 }}
@@ -79,7 +80,7 @@ export function Testimonials() {
                         />
                       </div>
                       <blockquote className="mb-6">
-                        <p className="text-fluid-lg sm:text-fluid-xl md:text-fluid-2xl leading-relaxed font-Newsreader">
+                        <p className="text-fluid-md sm:text-fluid-lg md:text-fluid-xl lg:text-fluid-2xl leading-tight font-Newsreader">
                           "{testimonial.quote}"
                         </p>
                       </blockquote>

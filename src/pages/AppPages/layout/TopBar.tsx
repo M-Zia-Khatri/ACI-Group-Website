@@ -20,7 +20,7 @@ export default function TopBar() {
     []
   );
   return (
-    <header className="text-white flex justify-between items-center md:px-6 py-3 md:py-4 text-base md:text-lg bg-[var(--dark-navy)] shadow-md sticky top-0 z-50 border-b-[1px] border-[#252323]">
+    <header className="text-white flex justify-between items-center px-3 md:px-6 py-0 md:py-3 text-base md:text-lg bg-[var(--dark-navy)] shadow-md sticky top-0 z-50 border-b-[1px] border-[#252323]">
       {/* logo */}
       <div className="flex items-center gap-3 md:gap-4">
         <img
@@ -37,7 +37,7 @@ export default function TopBar() {
         />
       </div>
       {/* Desktop Navigation */}
-      <nav className="hidden md:block p-2">
+      <nav className="hidden md:block">
         <ul className="flex gap-3 md:gap-4 items-center">
           {navlink.map((link) => (
             <Link
