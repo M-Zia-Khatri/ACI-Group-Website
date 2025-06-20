@@ -27,7 +27,7 @@ const trustFeatures = [
 export function WhyTrustUs() {
   return (
     <section className="py-8 md:py-12 xl:py-16 bg-[#202428] text-white">
-      <div className="max-w-[1250px] w-full mx-auto px-4 md:px-6">
+      <div className="max-w-[var(--max-width)] w-full mx-auto px-4 md:px-6">
         <motion.div
           className="mb-16 text-center"
           initial={{ opacity: 0, y: 20 }}

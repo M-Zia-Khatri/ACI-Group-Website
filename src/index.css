@@ -74,6 +74,7 @@
   --sidebar-accent-foreground: oklch(0.21 0.034 264.665);
   --sidebar-border: oklch(0.928 0.006 264.531);
   --sidebar-ring: oklch(0.707 0.022 261.325);
+
   --primary-blue: #0052cc;
   --accent-green: #008894;
   --dark-navy: rgb(9,9,10);
@@ -81,6 +82,7 @@
   --text-black: #2c3e50;
   --white: #ffffff;
   --background : #151818;
+  
   --Karla: 'Karla', Arial, sans-serif ;
   --Newsreader: 'Newsreader', 'Open Sans', Arial, sans-serif;
   --fluid-xs: clamp(0.75rem, 0.6vw + 0.6rem, 1rem);
@@ -97,6 +99,7 @@
   --fluid-7xl: clamp(4.5rem, 5vw + 3rem, 5.25rem);
   --fluid-8xl: clamp(5rem, 5.5vw + 3.3rem, 5.75rem);
   --fluid-9xl: clamp(5.5rem, 6vw + 3.6rem, 6.25rem);
+  --max-width: 1250px !important;
 }
 
 .dark {
@@ -137,6 +140,7 @@
   --light-gray: #f4f6f8;
   --text-black: #2c3e50;
   --white: #ffffff;
+  
 }
 
 @layer utilities {
@@ -262,6 +266,7 @@
   .cta, .button {
     font-family: 'Karla', Arial, sans-serif;
   }
+  
   .Newsreader {
     font-family: 'Newsreader', 'Open Sans', Arial, sans-serif;
   }
@@ -270,10 +275,11 @@
   }
 }
 
-
-
 .btn{
   height: fit-content;
   @apply text-center tracking-wider
 }
+
+
+
 

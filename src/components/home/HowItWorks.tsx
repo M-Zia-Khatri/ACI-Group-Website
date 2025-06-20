@@ -28,7 +28,7 @@ const steps = [
 export function HowItWorksSection() {
   return (
     <section className="text-white py-6 mb-4 md:py-12">
-      <div className="w-full max-w-[1250px] mx-auto px-4">
+      <div className="w-full max-w-[var(--max-width)] mx-auto px-4">
         {/* Section Heading */}
         <div className="text-center mb-20">
           <h2 className="text-fluid-xl sm:text-fluid-2xl md:text-fluid-3xl lg:text-fluid-4xl xl:text-fluid-5xl font-extrabold tracking-wide">
@@ -42,7 +42,7 @@ export function HowItWorksSection() {
         </div>
 
         {/* Timeline Steps */}
-        <div className="relative max-w-[1250px] mx-auto">
+        <div className="relative max-w-[var(--max-width)] mx-auto">
           {/* Timeline Vertical Line */}
           <div className="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 h-full w-1 bg-[#364153] z-0" />
 

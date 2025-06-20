@@ -23,7 +23,7 @@ export default function OurPromise() {
 
   return (
     <section className="min-h-[400px] flex items-center justify-center text-white  py-10 md:py-16 bg-gradient-to-br from-[#181c20] to-[#23272b] shadow-lg ">
-      <div className="w-full max-w-[1250px] px-2 lg:px-0 flex flex-col items-center">
+      <div className="w-full max-w-[var(--max-width)] px-2 lg:px-0 flex flex-col items-center">
         {/*heading*/}
         <div className="w-full mb-10 md:mb-12">
           <h2 className="text-fluid-xl sm:text-fluid-2xl md:text-fluid-3xl lg:text-fluid-4xl xl:text-fluid-5xl font-extrabold text-center tracking-wide leading-7 ">

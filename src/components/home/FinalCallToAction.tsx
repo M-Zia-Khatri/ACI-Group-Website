@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export default function FinalCallToAction() {
   return (
     <section className="py-8 md:py-12 xl:py-16 bg-gradient-to-br from-[#181c20] to-[#23272b] text-white">
-      <div className="w-full max-w-[1250px] mx-auto px-4 md:px-6">
+      <div className="w-full max-w-[var(--max-width)] mx-auto px-4 md:px-6">
         <motion.div
           className="flex flex-col items-center justify-center gap-12 text-center max-w-6xl mx-auto"
           initial={{ opacity: 0, y: 30 }}

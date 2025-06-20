@@ -57,7 +57,7 @@ export const Footer = () => {
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#0052CC]/5 rounded-full translate-x-1/2 translate-y-1/2 blur-3xl"></div>
 
       {/* Main content */}
-      <div className="w-full max-w-[1250px] relative mx-auto px-4 md:px-6">
+      <div className="w-full max-w-[var(--max-width)] relative mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 py-16">
           {/* Company Info */}
           <motion.div

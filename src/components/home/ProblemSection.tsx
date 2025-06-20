@@ -1,7 +1,7 @@
 export default function ProblemSection() {
   return (
     <section className=" m-4 py-4 md:py-6 ">
-      <div className="max-w-[1250px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="max-w-[var(--max-width)] mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="flex flex-col justify-center text-center md:text-left  text-white">
           <h2 className="text-fluid-lg sm:text-fluid-xl md:text-fluid-md lg:text-fluid-lg xl:text-fluid-xl font-bold mb-4 text-[var(--primary-color)] leading-tight">
             Feeling overwhelmed by trading, losses, or unreliable “tips”?

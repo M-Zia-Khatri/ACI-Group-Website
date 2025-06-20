@@ -34,7 +34,7 @@ export function Testimonials() {
 
   return (
     <section className="py-16 lg:py-10 bg-gradient-to-br from-[#181c20] to-[#23272b] text-white">
-      <div className="max-w-[1250px] w-full mx-auto px-4 md:px-6">
+      <div className="max-w-[var(--max-width)] w-full mx-auto px-4 md:px-6">
         <motion.div
           className="mb-16 text-center"
           initial={{ opacity: 0, y: 20 }}
