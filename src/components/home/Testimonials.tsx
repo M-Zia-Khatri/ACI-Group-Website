@@ -33,7 +33,7 @@ export function Testimonials() {
   );
 
   return (
-    <section className="py-16 lg:py-10 bg-gradient-to-br from-[#181c20] to-[#23272b] text-white">
+    <section className="py-16 lg:py-10 text-white">
       <div className="max-w-[var(--max-width)] w-full mx-auto px-4 md:px-6">
         <motion.div
           className="mb-16 text-center"
@@ -45,7 +45,7 @@ export function Testimonials() {
           <h2 className="text-fluid-xl sm:text-fluid-2xl md:text-fluid-3xl lg:text-fluid-4xl xl:text-fluid-5xl font-extrabold tracking-wide mb-4">
             What Our Clients Say
           </h2>
-          <hr className="relative top-5 border-t border-[1.5px] border-[#23272b]" />
+          <hr className="relative top-5 border-t border-[1.5px] border-[var(--background-dark-5)]" />
         </motion.div>
 
         <motion.div
@@ -72,7 +72,7 @@ export function Testimonials() {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5 }}
                   >
-                    <figure className="flex h-full flex-col items-center justify-center text-center bg-[#151818] rounded-2xl p-8 shadow-2xl">
+                    <figure className="flex h-full flex-col items-center justify-center text-center bg-[var(--background-dark-1)] rounded-2xl p-8 shadow-lg">
                       <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#0052CC]/10">
                         <Quote
                           className="h-8 w-8 text-[#0052CC]"

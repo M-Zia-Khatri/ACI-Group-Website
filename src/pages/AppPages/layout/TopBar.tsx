@@ -5,6 +5,7 @@ import { Menu } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useMemo, useState } from "react";
+import { motion } from "framer-motion";
 
 export default function TopBar() {
   const [open, setOpen] = useState(false);
@@ -20,21 +21,26 @@ export default function TopBar() {
     []
   );
   return (
-    <header className="text-white flex justify-between items-center px-3 md:px-6 py-0 md:py-3 text-base md:text-lg bg-[var(--dark-navy)] shadow-md sticky top-0 z-50 border-b-[1px] border-[#252323]">
+    <header className="text-white flex justify-between items-center px-3 md:px-6 py-0 md:py-3 text-base md:text-lg bg-[var(--background-dark-1)] shadow-md sticky top-0 z-50 border-b-[1.5px] border-[var(--background-dark-5)]">
       {/* logo */}
       <div className="flex items-center gap-3 md:gap-4">
-        <img
-          src={logoHover ? "/logo-blue.svg" : "/logo.svg"}
-          alt="Logo"
-          className={`w-[25vw] md:w-[22vw] lg:w-[20vw] transition-all duration-500 ease-in-out ${
-            logoHover ? "scale-105 opacity-80" : "scale-100 opacity-100"
-          }`}
-          onMouseEnter={() => setLogoHover(true)}
-          onMouseLeave={() => setLogoHover(false)}
-          style={{
-            transition: "opacity 0.5s, transform 0.5s",
-          }}
-        />
+        <Link to={AppNavigation.Home}>
+          <motion.img
+        src={logoHover ? "/logo-blue.svg" : "/logo.svg"}
+        alt="Logo"
+        className="w-[25vw] md:w-[22vw] lg:w-[20vw]"
+        animate={{
+          scale: logoHover ? 1.05 : 1,
+          opacity: logoHover ? 0.8 : 1,
+        }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+        onMouseEnter={() => setLogoHover(true)}
+        onMouseLeave={() => setLogoHover(false)}
+        style={{
+          cursor: "pointer",
+        }}
+          />
+        </Link>
       </div>
       {/* Desktop Navigation */}
       <nav className="hidden md:block">
@@ -55,7 +61,7 @@ export default function TopBar() {
       {/* Desktop CTA Button */}
       <div className="hidden h-full md:block">
         <a href={WHATSAPP_Num_URL} target="_blank" rel="noopener noreferrer">
-          <Button className="btn cta py-0 h-full hover:bg-[#1C1D1D] bg-[var(--dark-navy)] hover:text-[var(--primary-blue)] transition-colors duration-500 text-fluid-lg">
+          <Button className="btn cta py-0 h-full  bg-[var(--background-dark-1)] text-fluid-lg">
             Book free call
           </Button>
         </a>

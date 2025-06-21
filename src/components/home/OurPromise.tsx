@@ -22,14 +22,14 @@ export default function OurPromise() {
   );
 
   return (
-    <section className="min-h-[400px] flex items-center justify-center text-white  py-10 md:py-16 bg-gradient-to-br from-[#181c20] to-[#23272b] shadow-lg ">
+    <section className="min-h-[400px] flex items-center justify-center text-white  py-10 md:py-16 bg-[var(--background-dark-3)] shadow-lg ">
       <div className="w-full max-w-[var(--max-width)] px-2 lg:px-0 flex flex-col items-center">
         {/*heading*/}
         <div className="w-full mb-10 md:mb-12">
           <h2 className="text-fluid-xl sm:text-fluid-2xl md:text-fluid-3xl lg:text-fluid-4xl xl:text-fluid-5xl font-extrabold text-center tracking-wide leading-7 ">
             The ACI Group Promise
           </h2>
-          <hr className="relative top-6 md:top-9 xl:top-10 border-t border-[1.5px] border-[#23272b]" />
+          <hr className="relative top-6 md:top-9 xl:top-10 border-t border-[1.5px] border-[var(--background-dark-5)]" />
         </div>
 
         {/*Listing*/}
@@ -54,7 +54,7 @@ export default function OurPromise() {
                     <motion.span
                       layout
                       className={`w-2 h-[80%] mr-4 rounded-full my-auto ${
-                        isActive ? "bg-green-400" : "bg-gray-700"
+                        isActive ? "bg-[var(--accent-green)]" : "bg-gray-700"
                       }`}
                       transition={{ duration: 0.4 }}
                     />
@@ -84,7 +84,7 @@ export default function OurPromise() {
 
           {/* Right: Card */}
           <div className="flex-1 flex items-center justify-center">
-            <div className="bg-[var(--background)] rounded-2xl shadow-xl p-4 w-full border flex flex-col items-center transition-all duration-500 ease-in-out">
+            <div className="bg-[var(--background-dark-1)] rounded-2xl shadow-xl p-4 w-full border flex flex-col items-center transition-all duration-500 ease-in-out">
               <AspectRatio ratio={9 / 7}>
                 <AnimatePresence mode="wait">
                   <motion.img
@@ -105,7 +105,7 @@ export default function OurPromise() {
 
         {/*To inspire trust*/}
         <div className="w-full text-center mt-10">
-          <p className="px-2 font-bold text-gray-400 border-t border-[1.5px] border-[#23272b] pt-6 text-fluid sm:text-fluid-md md:text-fluid-lg xl:text-fluid-xl leading-snug lg:leading-">
+          <p className="px-2 font-bold text-gray-400  border-t-[1.5px] border-[var(--background-dark-5)] pt-6 text-fluid sm:text-fluid-md md:text-fluid-lg xl:text-fluid-xl leading-snug lg:leading-">
             We don’t sell courses. We don’t make false promises. We only grow if
             you grow.
           </p>

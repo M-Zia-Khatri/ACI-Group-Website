@@ -50,9 +50,9 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-[#181c20] to-[#23272b] text-white relative overflow-hidden">
+    <footer className="border-t-[1.5px] border-[var(--background-dark-5)] text-white relative overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute inset-0 bg-[#151818]/30"></div>
+      <div className="absolute inset-0 bg-[var(--background-dark-1)]/30"></div>
       <div className="absolute top-0 left-0 w-96 h-96 bg-[#0052CC]/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#0052CC]/5 rounded-full translate-x-1/2 translate-y-1/2 blur-3xl"></div>
 
@@ -170,7 +170,7 @@ export const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-gray-800 py-8">
+        <div className="border-t-[1.5px] border-[var(--background-dark-5)] py-8">
           <p className="text-center text-gray-400 text-sm">
             © {new Date().getFullYear()} ACI Group. All rights reserved.
           </p>

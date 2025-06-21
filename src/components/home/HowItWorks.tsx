@@ -38,13 +38,13 @@ export function HowItWorksSection() {
             You'll get access to live dashboards, monthly reports, and full
             control over your funds.
           </p>
-          <hr className="relative top-6 border-t border-[1.5px] border-[#23272b]" />
+          <hr className="relative top-6 border-t border-[1.5px] border-[var(--background-dark-5)]" />
         </div>
 
         {/* Timeline Steps */}
         <div className="relative max-w-[var(--max-width)] mx-auto">
           {/* Timeline Vertical Line */}
-          <div className="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 h-full w-1 bg-[#364153] z-0" />
+          <div className="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 h-full w-1 bg-[var(--background-dark-5)] z-0" />
 
           {/* Step Introduction */}
           <ol className="flex flex-col md:grid md:grid-cols-10 md:grid-rows-3 gap-y-3.5 gap-x-4 relative z-10">
@@ -73,7 +73,7 @@ export function HowItWorksSection() {
                   })()}
                 `}
               >
-                <div className="bg-[#202428]  h-full flex flex-col items-center justify-center rounded-xl shadow-xl px-6 py-8 w-full">
+                <div className="bg-[var(--background-dark-1)]  h-full flex flex-col items-center justify-center rounded-xl shadow-xl px-6 py-8 w-full">
                   <Icon className="h-[9vh] md:h-[8vh] w-[9vw] md:w-[8vw] text-[#0052CC] mb-4" />
                   <h3 className="text-fluid-xl sm:text-fluid-2xl md:text-fluid-xl lg:text-fluid-2xl font-semibold mb-1">
                     Step {step}
